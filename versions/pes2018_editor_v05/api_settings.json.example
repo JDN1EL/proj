@@ -1,0 +1,11 @@
+{
+  "keys": {
+    "api_football": "",
+    "sportmonks": "",
+    "football_data": ""
+  },
+  "aliases": {
+    "North London": "Arsenal",
+    "Man Blue": "Manchester City"
+  }
+}

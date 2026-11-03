@@ -1,0 +1,41 @@
+PES 2018 XBOX 360 EDITOR v0.8 — PLAYERSDB LOCAL
+
+INSTALAÇÃO
+1. Extraia o ZIP inteiro para uma pasta comum.
+2. Execute GERAR_EXE_WINDOWS.bat em Windows com Python 3.10+ para gerar o EXE.
+3. Abra o programa e carregue o data.bin extraído do EDIT00000000.
+4. O editor tentará baixar o arquivo CSV mais recente do PlayersDB. Se não conseguir localizar/baixar o arquivo, mostrará o endereço https://playersdb.app/ e permitirá carregar manualmente CSV ou JSONL.
+5. Revise o relatório de correções e use Salvar como... para criar um novo data.bin.
+
+PLAYERSDB
+- Não há APIs de futebol nem campos de chaves/tokens nesta versão.
+- CSV e JSONL são lidos localmente. O download automático é feito pelo endereço de download encontrado na página PlayersDB.
+- O arquivo fica em %APPDATA%\PES2018_X360_Editor\database.
+- A associação usa IDs PES/Konami e o campo Team Name(s). Para nomear uma equipe fictícia, o editor soma as equipes associadas aos jogadores que já estão no elenco e só aceita um resultado com ao menos 3 votos, participação de 40% e margem de 2 votos sobre o segundo colocado.
+- Quando há ID PES único dentro da faixa de 0 a 20.999, o editor pode preencher um registro vazio na posição correspondente. Esses registros novos recebem nome e, quando disponíveis, idade, altura e peso. Atributos, habilidades, estilos COM, pé, lesões e animações não são inventados; revise antes de usar no jogo.
+- Elencos são reconstruídos somente quando há pelo menos 8 jogadores locais reconhecidos; são limitados a 32 vagas.
+- A base PlayersDB reúne jogadores de várias versões do PES/eFootball. O arquivo não garante, sozinho, que cada elenco represente exatamente o PES 2018 Xbox 360. Confira o resultado antes de gravar.
+
+ABAS E AÇÕES
+- Jogadores: busca por ID/nome, edição manual, transferência, criação manual, remoção e substituição de vaga.
+- Clubes / Seleções: lista equipes e mostra o elenco da equipe selecionada.
+- Transferir jogador selecionado: move entre clubes, mas preserva convocações nacionais.
+- Convocar para seleção: adiciona o jogador à seleção sem removê-lo do clube. A classificação atual considera IDs de seleção 0–54, conforme a estrutura observada no projeto; confira a equipe selecionada.
+- Adicionar jogador ao elenco: permite incluir jogador livre na equipe se houver vaga. Se ele estiver em outro clube, use Transferir.
+- A faixa horizontal inferior explica o controle sob o mouse ou clicado.
+
+NOMES DE COMPETIÇÕES — LIMITAÇÃO
+O layout binário que o projeto conhece identifica com segurança tabelas de jogadores, equipes e elencos, mas não identifica ainda a tabela/offset de nomes das competições. Por segurança, a v0.8 não grava nomes de competições nem presume offsets. A própria interface informa essa limitação. Essa parte exige análise de um data.bin real e validação específica antes de ser ativada.
+
+SEGURANÇA
+- Alterações são feitas em memória até Salvar como...
+- Salvamento atômico, verificação por leitura posterior e backup .bak se o destino já existir.
+- IDs não são compactados. Uma entrada nova usa um registro vazio dentro da faixa reservada; não se deslocam outros registros.
+- Mantenha cópia intacta do data.bin original.
+- O editor não descriptografa, reempacota nem assina CON/LIVE/PIRS/EDIT STFS. Reimporte o data.bin editado usando ferramenta externa compatível.
+
+TESTES / LIMITES
+- Testes offline executados: leitura CSV/JSONL, normalização de colunas, associação por ID PES, votação de nome de equipe, criação em registro vazio, montagem de elenco com vaga livre e salvamento com backup.
+- O download real do PlayersDB não pôde ser executado neste ambiente de construção; a extração automática de links deve ser confirmada no Windows do usuário. Há fallback para download manual.
+- Não foi testado com o data.bin real do usuário nem em Xbox 360 RGH.
+- O EXE não foi compilado neste ambiente; gere-o com o BAT em Windows.

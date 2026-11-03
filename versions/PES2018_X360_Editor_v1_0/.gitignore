@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+logs/*.json
+logs/*.txt
+logs/*.jsonl
+!logs/LEIA-ME.txt

@@ -1,0 +1,21 @@
+PES 2018 XBOX 360 EDITOR — CHANGELOG v0.9
+Data: 02/11/2026
+
+- Núcleo independente; removida a dependência do módulo antigo v0.8.
+- Nenhum conector API de futebol incluído.
+- Importador PlayersDB adaptado ao esquema real: konamiID/playerName/fakeName/game_versions.
+- Download local CSV/JSONL em thread separada e fallback de abertura do site + seleção manual.
+- Corrigido uso dos IDs Konami de 32 bits nas referências de elenco.
+- Catálogo unificado com todos os 508 registros de equipes do data.bin.
+- 82 seleções, 424 clubes e 2 equipes clássicas na base de referência analisada.
+- Aba Clubes/Seleções redesenhada; filtro, busca e edição manual de nome/sigla.
+- Removido painel duplicado de equipes no canto inferior direito.
+- Adicionada aba Competições com edição individual.
+- Correção automática por ID + nome antigo exato: 119 equipes e 32 competições no pacote de referência.
+- Ajuda horizontal fixa no rodapé, com explicação por hover/clique nos controles.
+- Transferência, convocação e inclusão em vaga livre usam IDs Konami de 32 bits.
+- Cópia de elenco preserva o cabeçalho próprio do registro de destino.
+- Convocação preserva o vínculo de clube; transferência remove de outros clubes, preservando seleções.
+- Validação estrita de integridade: qualquer referência inválida bloqueia operações de elenco.
+- Salvamento atômico, verificação de conteúdo, .bak, desfazer/refazer e logs TXT/JSON/JSONL.
+- Leitura e verificação de hash STFS; gravação continua limitada a data.bin extraído.

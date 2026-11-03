@@ -1,0 +1,3 @@
+# Apenas biblioteca padrão do Python (Tkinter precisa estar habilitado na instalação).
+# PyInstaller é necessário somente para gerar o .exe no Windows:
+pyinstaller>=6.0

@@ -1,0 +1,98 @@
+{
+  "format": "PES 2018 Xbox 360 data.bin — compatibilidade v0.3",
+  "endianness": "contagens e IDs em big-endian; bitfields MSB-first",
+  "tested_files": [
+    {
+      "arquivo": "data(1).bin",
+      "rotulo": "base_modificada_510",
+      "sha256": "777b05c8d57b3446de41ee12ccfd1c90c2bfb1561a9faf08df328eb603ff3af7",
+      "tamanho_bytes": 5203344,
+      "jogadores": 14936,
+      "equipes": 510,
+      "elencos": 510,
+      "blocos_taticos": 510,
+      "vagas_ocupadas": 13257,
+      "avisos": [],
+      "somente_leitura": false
+    },
+    {
+      "arquivo": "data(2).bin",
+      "rotulo": "data_original_console_508",
+      "sha256": "f2c0d8b6b21fc190fc30904f5a7a9711a98f4d57dd416d0500a8bcce86cbf877",
+      "tamanho_bytes": 5203344,
+      "jogadores": 13290,
+      "equipes": 508,
+      "elencos": 508,
+      "blocos_taticos": 508,
+      "vagas_ocupadas": 13805,
+      "avisos": [],
+      "somente_leitura": false
+    }
+  ],
+  "header": {
+    "size": "0x7C",
+    "player_count_offset": "0x60",
+    "team_count_offset": "0x64",
+    "roster_count_offset": "0x70"
+  },
+  "tables": {
+    "players": {
+      "offset": "0x7C",
+      "stride": "0xBC",
+      "capacity": 21000,
+      "active_count_from_header": true,
+      "fields": {
+        "id": "+0x00 uint32_be",
+        "comm_id": "+0x04 uint32_be",
+        "nationality": "+0x0A uint16_be",
+        "height": "+0x0C uint8",
+        "weight": "+0x0D uint8",
+        "packed_stats": "+0x10..+0x33 (36 bytes)",
+        "name": "+0x34..+0x61 (46 bytes UTF-8)",
+        "shirt_name": "+0x62..+0x73 (18 bytes UTF-8)",
+        "appearance": "+0x74..+0xBB (72 bytes raw/preserved)"
+      }
+    },
+    "teams": {
+      "offset": "0x3C3E5C",
+      "stride": "0x1E0",
+      "count_from_header": true,
+      "fields": {
+        "id": "+0x00 uint32_be",
+        "name": "+0x98 (70 bytes UTF-8)",
+        "short": "+0xDE (3 bytes UTF-8)"
+      }
+    },
+    "rosters": {
+      "offset": "0x46FF54",
+      "stride": "0xA4",
+      "count_from_header": true,
+      "fields": {
+        "team_id": "+0x00 uint32_be",
+        "player_ids": "+0x04..+0x83 (32 x uint32_be)",
+        "shirt_numbers": "+0x84..+0xA3 (32 x uint8)",
+        "auxiliary": "bytes not modified by roster copy"
+      }
+    },
+    "tactics": {
+      "offset": "0x488B74",
+      "stride": "0x274",
+      "count_from_team_count": true,
+      "per_team": "3 plans x 3 formations",
+      "formation_record": "11 position codes + 11 Y coordinates + 11 X coordinates",
+      "known_controls": "attacking style, buildup, attacking zone, positioning, defensive style, containment area, pressure, attack/defense instructions, support range, numbers in attack, defensive line, compactness, numbers in defense, fluid setting, starting 11, bench order, set-piece takers, captain and automation flags",
+      "unknown_bytes": "preserved by copying the complete fixed-size block"
+    }
+  },
+  "recovery": {
+    "supported": "counts 1..510 if physical bounds fit known PES 2018 layout",
+    "on_mismatch": "offers Carregar mesmo assim; opens read-only when structural warnings exist",
+    "id_linkage": "team, roster and tactics linked by team_id, not table row number"
+  },
+  "limitations": [
+    "not a universal parser for every PES year/version",
+    "does not decrypt/re-encrypt/sign Xbox 360 save containers",
+    "appearance 72-byte subfields are read-only",
+    "formation/tactics template copying requires testing on console copy"
+  ]
+}

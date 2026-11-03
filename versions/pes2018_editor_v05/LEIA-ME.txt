@@ -1,0 +1,51 @@
+PES 2018 XBOX 360 EDITOR v0.6 - INTEGRAÇÃO DE ELENCOS (BETA)
+
+INSTALAÇÃO
+1. Extraia o ZIP.
+2. Execute GERAR_EXE_WINDOWS.bat para gerar o EXE em dist\.
+3. Abra o editor e carregue o data.bin extraído do EDIT00000000.
+4. O editor perguntará se deseja consultar as APIs. Também é possível usar APIs / Chaves e Atualizar elencos.
+
+APIs INTEGRADAS
+1. API-Football (API-Sports): pesquisa clube e consulta elenco atual via /teams?search= e /players/squads?team=.
+2. Sportmonks: pesquisa clube e consulta elenco atual via /teams/search/ e /squads/teams/{id}?include=player.
+3. football-data.org: pesquisa equipe e tenta ler o elenco no detalhe da equipe /v4/teams/{id}.
+
+A ordem de fallback é API-Football -> Sportmonks -> football-data.org. Uma falha, chave ausente, limite de requisições ou falta de cobertura em uma fonte faz o programa tentar a seguinte. Se todas falharem, o arquivo permanece aberto e editável offline.
+
+CHAVES
+- Obtenha suas próprias chaves nos sites oficiais dos provedores.
+- No editor, clique em APIs / Chaves e cole os tokens.
+- As chaves ficam em api_settings.json, localmente na pasta do programa. Não compartilhe esse arquivo.
+- Planos gratuitos têm limites e cobertura restrita. O editor consulta em lotes de 30 equipes para reduzir o risco de exceder quotas. Clique novamente em Atualizar elencos para processar o próximo lote.
+
+NOMES ALTERNATIVOS DO PES 2018
+Muitos clubes do PES usam nomes fictícios/licenciados parcialmente. O editor tenta a busca pelo nome carregado e aceita aliases em api_settings.json, no campo "aliases". Exemplo:
+{
+  "keys": {"api_football":"", "sportmonks":"", "football_data":""},
+  "aliases": {
+    "North London":"Arsenal",
+    "Man Blue":"Manchester City"
+  }
+}
+Os exemplos são ilustrativos; confirme o nome exato no seu data.bin antes de adicionar aliases. A lista completa de aliases não foi pré-carregada porque depende da edição/option file e do arquivo original específico do usuário.
+
+ALTERAÇÕES MANUAIS
+O programa registra IDs de jogadores editados ou transferidos manualmente em manual_changes.json. Na atualização seguinte, oferece:
+- Preservar os jogadores com alterações manuais;
+- Substituir também as alterações manuais;
+- Ignorar os jogadores marcados manualmente.
+Essa proteção é por jogador/ID, não por campo individual. Não há ainda uma tela de comparação campo a campo.
+
+IMPORTANTE SOBRE O FORMATO PES
+- A API fornece nomes, idade quando disponível, posição e número; não fornece atributos PES, habilidades, estilos COM ou animações.
+- Jogadores novos são criados usando o primeiro registro vazio e atributos permanecem zerados até edição manual. Verifique antes de usar no console.
+- Os elencos são limitados a 32 posições neste editor.
+- O mapeamento automático de nomes falsos do PES não é garantido. Para mapear todos corretamente, é necessário validar o arquivo de referência específico (data.bin/EDIT e CSV de equipes) e criar aliases para cada clube.
+- O processo não atualiza atributos de jogo automaticamente e não reempacota/reassina STFS. Abra data.bin extraído e reimporte com ferramenta STFS externa.
+- Sempre faça cópia do EDIT original. Teste em cópia, nunca no único save.
+
+LIMITAÇÕES TÉCNICAS HERDADAS
+- Bytes de atributos/habilidades ainda aparecem como valores brutos sem semântica completamente validada.
+- STFS é somente leitura/extração externa; não há reempacotamento ou assinatura CON/LIVE/PIRS.
+- As APIs têm planos, quotas e cobertura próprios; não há garantia de que todas as equipes PES tenham correspondência.

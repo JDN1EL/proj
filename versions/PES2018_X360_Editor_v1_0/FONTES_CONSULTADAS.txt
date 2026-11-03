@@ -1,0 +1,35 @@
+FONTES E DADOS CONSULTADOS — v1.0
+Data da consulta: 02/11/2026
+
+1) PlayersDB
+https://playersdb.app/
+Arquivo de teste fornecido pelo usuário: PlayersDB_20261102.csv
+Campos usados: konamiID, playerName, fakeName, fullName, birthdate, height, nationalities, game_versions, shirtName e fakeShirtName.
+Uso: identificação de jogadores e correção de nomes por ID. youthClub não é tratado como clube atual.
+
+2) Transfermarkt Datasets (snapshot CSV/CSV.GZ)
+https://github.com/dcaribou/transfermarkt-datasets
+Arquivos: players.csv.gz, clubs.csv.gz, national_teams.csv.gz, transfers.csv.gz.
+Download estático: https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/
+Status informado pelo repositório: dados até 06/07/2026; atualizações pausadas; elencos 2026/27 não cobertos.
+Licença indicada no metadata público do projeto: CC0.
+Uso: current_club_id, current_national_team_id, IDs de clubes/seleções, dados biográficos e histórico de transferências.
+
+3) football-datasets (salimt)
+https://github.com/salimt/football-datasets
+Consultado como alternativa de dados abertos com perfis, clubes, histórico de transferências e histórico de seleções. O formato/estado temporal não foi integrado como fonte de atualização nesta versão; não usar como garantia de elencos atuais.
+
+4) Reep Football
+https://reep.football/
+Consultado como referência complementar de identidades e aliases de nomes. Não é usado como fonte de vínculo atual de clube nesta versão.
+
+5) PES 2018 fake names / clássicos
+https://www.pesgaming.com/forums/
+Referência comunitária para aliases históricos de jogadores clássicos. A lista embutida é curada; não representa uma base oficial completa.
+
+6) Arquivos do usuário
+- data(3).bin — arquivo binário modificado por patches/versões anteriores.
+- EDIT00000000(3) — pacote STFS de referência; data.bin extraído para análise.
+- PlayersDB_20261102.csv — base PlayersDB fornecida.
+
+Observação: nenhuma chave de API é usada ou necessária. Os arquivos Transfermarkt são CSV estáticos, não APIs esportivas.

@@ -1,0 +1,99 @@
+PES 2018 XBOX 360 EDITOR — v1.0
+================================
+Data: 02/11/2026
+
+OBJETIVO
+- Editor local para PES 2018 Xbox 360 RGH.
+- Corrige nomes conhecidos de jogadores, clubes, seleções e competições.
+- Analisa e propõe transferências de clubes usando arquivos estáticos CSV/CSV.GZ.
+- Mantém funções manuais de edição de jogadores, clubes, seleções, competições e elencos.
+- Não usa API-Football, Sportmonks, football-data.org nem serviços de API esportiva.
+
+INICIAR NO WINDOWS
+1. Extraia o ZIP inteiro para uma pasta.
+2. Execute EXECUTAR_EDITOR_WINDOWS.bat.
+3. Clique em ABRIR BIN / EDIT e selecione data.bin ou EDIT00000000.
+4. Ao abrir, o editor reconhece o layout PES 2018 X360 conhecido e corrige em memória os nomes que tenham correspondência segura.
+5. O PlayersDB pode ser baixado automaticamente; se a rede/site não responder, carregue CSV ou JSONL manualmente.
+6. Para transferências, abra a aba ATUALIZAR ELENCOS e carregue a base estática Transfermarkt.
+7. Clique em ANALISAR ELENCOS, revise o CSV/relatório da prévia e só então use APLICAR PLANO.
+8. Use SALVAR COMO para criar outro data.bin. Nunca substitui o arquivo de origem por padrão.
+
+ARQUIVOS ACEITOS
+- data.bin (binário extraído do save/EDIT).
+- Pacotes STFS Xbox 360 CON/LIVE/PIRS que contenham data.bin: o editor valida e extrai o conteúdo em memória.
+- PlayersDB: .csv, .csv.gz, .jsonl, .jsonl.gz.
+- Transfermarkt estático: players.csv(.gz) + clubs.csv(.gz); national_teams.csv(.gz) e transfers.csv(.gz) são opcionais. Também aceita ZIP contendo esses arquivos.
+
+FONTES DE DADOS E LIMITES
+1. PlayersDB
+- Fonte de identidade e IDs Konami: konamiID, playerName, fakeName, birthdate, height, nationalities e game_versions.
+- O CSV fornecido pelo usuário tem 104.535 registros. A base tem várias versões do PES/eFootball.
+- O editor só considera registros marcados com PES 2018 para corrigir nomes por ID.
+- youthClub NÃO é tratado como clube atual.
+- PlayersDB sozinho não informa a equipe atual e não reconstrói elencos atuais.
+
+2. Transfermarkt Datasets (CSV estático)
+- Arquivos públicos players.csv.gz, clubs.csv.gz, national_teams.csv.gz e transfers.csv.gz.
+- O snapshot público verificado nesta versão tem corte em 06/07/2026. O repositório informou que as atualizações estão pausadas e que não inclui os elencos 2026/27.
+- Portanto, a base incluída no fluxo de download não representa o mercado de novembro de 2026. Ela serve como referência estática até o corte indicado.
+- O carregador também aceita arquivos manuais com o mesmo esquema. Nesta compilação, quando o arquivo não contém manifesto de data, a interface mostra o corte padrão de 06/07/2026; isso NÃO comprova a data de um CSV substituto. Confira a origem/data do arquivo antes de aplicar transferências e não o trate como fonte ao vivo.
+- A rotina de transferências usa current_club_id; histórico transfers é usado para auditoria/diagnóstico, não para presumir vínculo atual quando o campo atual está ausente.
+- O pacote não contém uma cópia embutida desses CSVs. O download depende de acesso ao endereço estático ou carregamento manual.
+
+3. Seleções nacionais
+- current_national_team_id é interpretado como vínculo de seleção indicado no perfil.
+- Isso não comprova convocação oficial para uma partida ou data específica.
+- Sugestões de seleção aparecem na prévia, mas ficam desmarcadas por padrão. Só serão adicionadas se o usuário marcar a opção “Incluir sugestões...” após revisão.
+
+IDENTIFICAÇÃO DE JOGADORES
+- A chave primária é o Konami ID de 32 bits do registro PES.
+- A correspondência com Transfermarkt exige combinação conservadora de nome/alias, data de nascimento, altura e nacionalidade corroborada.
+- Não há fuzzy matching global.
+- player_name_aliases.csv permite cadastrar aliases históricos por Konami ID, com fonte/nota.
+- Nomes clássicos conhecidos também possuem uma tabela histórica dedicada.
+- Registros ambíguos ou sem dados suficientes são ignorados e contabilizados no relatório.
+
+TRANSFERÊNCIAS
+- A análise gera prévia; nada é gravado no arquivo nessa fase.
+- Só considera clubes que foram mapeados para um ID PES por nome exato normalizado ou alias configurado.
+- Movimentos entre clubes retiram o jogador do elenco anterior e inserem no destino.
+- Seleções existentes são preservadas durante transferências.
+- Sugestões de seleção são operações separadas; não removem vínculos com clubes.
+- IDs desconhecidos no elenco (possíveis jogadores de patches) são preservados e contam como vagas ocupadas.
+- A alocação considera vagas liberadas por transferências aceitas, respeita o limite de 32 slots e não sobrescreve IDs desconhecidos.
+- Elenco cheio, clube não mapeado, jogador ambíguo e jogador sem correspondência são reportados, não adivinhados.
+
+COMPATIBILIDADE BINÁRIA
+- v1.0 detecta o layout PES 2018 Xbox 360 conhecido e patches que preservam seus offsets estruturais.
+- Não promete suportar qualquer PES, qualquer console ou patches que movam/redimensionem tabelas.
+- Arquivos com layout diferente são recusados antes da edição. Para uma nova variante, é necessário identificar e validar seus offsets.
+- O editor lê CON/LIVE/PIRS e verifica a cadeia STFS, mas NÃO reempacota nem reassina o pacote EDIT/STFS.
+- Depois de salvar data.bin, reimporte-o no pacote usando Horizon ou ferramenta STFS compatível.
+
+SALVAMENTO, BACKUP E LOGS
+- Salvar como escreve arquivo novo de forma atômica, valida tamanho/hash e cria .bak se o destino já existir.
+- Logs: logs/editor_events.jsonl e arquivos individuais TXT/JSON/CSV.
+- Relatórios de transferências: logs/previa_transferencias.csv e dados completos de análise nos logs JSON/TXT.
+- Base cacheada e preferências ficam em %APPDATA%/PES2018_X360_Editor/.
+
+GERAR EXE
+- Execute GERAR_EXE_WINDOWS.bat no Windows com Python 3.10+ e Tcl/Tk.
+- PyInstaller cria dist/PES2018_X360_Editor_v1_0.exe e o BAT copia os arquivos CSV de aliases para junto do EXE.
+- O ZIP contém código-fonte e BATs; não inclui EXE pré-compilado.
+
+TESTES E VALIDAÇÃO
+- Execute tests\\run_tests.bat ou:
+  python -m unittest discover -s tests -p "test_*.py" -v
+- Consulte VALIDACAO_v1.0.txt e DOSSIE_MESTRE_v1.0.txt para resultados e limitações.
+
+ARQUIVOS PRINCIPAIS
+- pes2018_editor_xbox360_v1_0.py — interface e fluxo de trabalho.
+- editor_core.py — edição, undo/redo e salvamento.
+- binary_layout.py — detecção do layout conhecido.
+- transfer_data.py — leitura de CSV estático, associação e plano de transferências.
+- playersdb_local.py — importação PlayersDB.
+- official_names.py / historical_names.py — nomes conhecidos.
+- *_aliases.csv — mapas editáveis de nomes e aliases.
+- pes2018_stfs.py — leitura de pacotes STFS.
+- tests/ — testes automatizados.

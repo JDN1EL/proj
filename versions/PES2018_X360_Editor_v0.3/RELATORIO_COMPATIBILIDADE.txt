@@ -1,0 +1,40 @@
+PES 2018 XBOX 360 — RELATÓRIO DE COMPATIBILIDADE v0.3
+
+ARQUIVO ORIGINAL ENVIADO PELO USUÁRIO
+- Nome recebido: data(2).bin
+- SHA-256: f2c0d8b6b21fc190fc30904f5a7a9711a98f4d57dd416d0500a8bcce86cbf877
+- Tamanho: 5,203,344 bytes
+- Jogadores ativos: 13,290
+- Equipes: 508
+- Elencos: 508
+- Blocos de formação/tática: 508
+- Vagas ocupadas nos elencos: 13,805
+- Avisos estruturais: nenhum
+- Modo de abertura: edição normal habilitada
+
+ARQUIVO MODIFICADO USADO NA ANÁLISE ANTERIOR
+- Nome: data(1).bin
+- SHA-256: 777b05c8d57b3446de41ee12ccfd1c90c2bfb1561a9faf08df328eb603ff3af7
+- Tamanho: 5,203,344 bytes
+- Jogadores ativos: 14,936
+- Equipes/elencos: 510/510
+- Blocos de formação/tática: 510
+- Avisos estruturais: nenhum
+
+CORREÇÃO DO ERRO ORIGINAL
+A versão v0.2 exigia equipes=510 e elencos=510. O data.bin original do console informa 508 e 508, embora mantenha o mesmo layout físico. A v0.3 usa as contagens reais do cabeçalho e associa as tabelas pelo ID da equipe. O arquivo original foi aberto sem recuperação forçada.
+
+TESTES AUTOMATIZADOS
+- 14 testes passaram nos dois arquivos (7 por arquivo).
+- Leitura de equipes, elencos e táticas passou.
+- Os IDs dos elencos foram resolvidos na tabela de jogadores.
+- Cópia de elenco + bloco tático e releitura passaram.
+- A recuperação de cabeçalho incompatível marcou o arquivo como somente leitura.
+- O teste da interface Tkinter/X11 carregou o arquivo original, exibiu as 508 equipes, abriu um elenco e exibiu os dados táticos.
+- Seleção/edição de jogador fora do elenco e ordenação numérica foram exercitadas na interface.
+
+OBSERVAÇÕES
+- O layout suportado é o PES 2018 analisado, não todos os jogos/anos da franquia PES.
+- A aplicação continua trabalhando no data.bin já extraído/descriptografado.
+- Reempacotamento, criptografia e assinatura do save Xbox 360 permanecem para a etapa posterior ao primeiro teste no console.
+- Formações/táticas podem ser visualizadas e copiadas como bloco integral. Testar apenas em cópia do arquivo.

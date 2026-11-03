@@ -1,0 +1,93 @@
+DOSSIE MESTRE — PES 2018 XBOX 360 EDITOR v1.0
+Data: 02/11/2026
+
+1. OBJETIVO
+Criar editor local para PES 2018 Xbox 360 RGH que reconheça o layout conhecido, corrija nomes de jogadores/equipes/competições, compare jogadores com bases offline de identidade e clube atual, proponha transferências/adições/sugestões de seleção e salve uma cópia de data.bin com backup e logs.
+
+2. ESTADO DA VERSÃO
+- v1.0 implementada; 20/20 testes automatizados aprovados.
+- UI Tkinter com abas Jogadores, Clubes/Seleções, Competições e Atualizar Elencos.
+- Barra horizontal de ajuda, filtros, edição de nomes, operações manuais e logs.
+- Nenhum conector de API esportiva permanece.
+- Rotinas de transferência usam dados estáticos CSV/CSV.GZ e geram prévia antes de aplicação.
+
+3. ARQUIVOS DO USUÁRIO ANALISADOS
+PlayersDB_20261102.csv
+- 30.710.026 bytes.
+- SHA-256: d56ede4dda7f460c950459573abfcc97333121d8fd38479048736a27a2603e08
+- 104.535 registros lidos pelo parser.
+
+data(3).bin
+- 5.203.344 bytes.
+- SHA-256: 6a8880749be9f26138841f6e68ac74a683a093fad4e4c31101fdc2cac6106267
+- Arquivo modificado por patches/versões anteriores, conforme esclarecimento do usuário. Referências que não correspondem à tabela local são preservadas como IDs possivelmente customizados; não devem ser declaradas corrupção por padrão.
+
+EDIT00000000(3)
+- 10.674.176 bytes STFS.
+- SHA-256: 84c6311990a6f0422acd5751e76a98e4114463c2cdaadcfb36ff3910d58cafde
+- data.bin extraído: 5.203.344 bytes; SHA-256: acbc113a308a539313f092085d212c14511ccbd73eedf6773d9223f3cc980328
+
+4. ESTRUTURA BINÁRIA VALIDADA
+- PLAYER_COUNT_OFFSET 0x60
+- TEAM_COUNT_OFFSET 0x64
+- ROSTER_COUNT_OFFSET 0x70
+- PLAYER_TABLE_OFFSET 0x7C; PLAYER_STRIDE 0xBC; PLAYER_CAPACITY 21.000
+- TEAM_TABLE_OFFSET = PLAYER_TABLE_OFFSET + 21.000 * 0xBC; TEAM_STRIDE 0x1E0
+- ROSTER_TABLE_OFFSET 0x46FF54; ROSTER_STRIDE 0xA4
+- TACTICS_TABLE_OFFSET 0x488B74; TACTICS_STRIDE 0x274
+- Referências de jogador nos elencos: 32 bits big-endian, 32 slots por equipe.
+- Nome da equipe: relativo 0x98, 70 bytes; sigla relativa 0xDE, 3 bytes.
+- Nome do jogador relativo 0x34, 46 bytes; nome de camisa relativo 0x62, 18 bytes.
+- Competição: tabela em 0x41C78C, 50 slots, stride 0x7C; ID u16 BE, nome relativo 0x0E.
+- Esses offsets não garantem compatibilidade com jogos/patches que deslocaram ou redimensionaram tabelas. A rotina detecta e rejeita os que não correspondem.
+
+5. DADOS E IDENTIDADE
+PlayersDB (snapshot do arquivo enviado):
+- Campos reais: konamiID, playerName, fakeName, fullName, birthdate, height, nationalities, game_versions, etc.
+- KONAMI ID é usado para ligar o jogador global do PES à linha PlayersDB.
+- Apenas registros marcados como PES 2018 participam da correção nominal.
+- `youthClub` não é clube atual.
+- CSV não fornece current club assignment.
+
+Transfermarkt static dataset:
+- players.csv.gz, clubs.csv.gz, national_teams.csv.gz, transfers.csv.gz.
+- `current_club_id` é a fonte de clube atual no snapshot.
+- `current_national_team_id` é vínculo indicado no perfil, não uma convocação oficial datada.
+- Atualizações públicas pausadas; dados até 06/07/2026; 2026/27 não coberto.
+- Snapshot disponível não permite afirmar que as transferências são atuais em 02/11/2026.
+
+6. REGRAS DE CORREÇÃO DE NOMES
+- Clubes/seleções: ID PES + aliases exatos em team_aliases.csv e national_team_aliases.csv.
+- Competições: ID + alias exato em competition_aliases.csv.
+- Jogadores: Konami ID + presença em PES 2018 no PlayersDB.
+- Nomes clássicos: tabela historical_names.py.
+- player_name_aliases.csv permite alias extra por Konami ID para identificar jogadores cujos nomes mudaram entre PES 2018 e fontes modernas.
+- Ambiguidades não são resolvidas por fuzzy matching global.
+
+7. REGRAS DE TRANSFERÊNCIA
+- Encontrar jogador PES->PlayersDB pelo Konami ID.
+- Encontrar perfil Transfermarkt por nome/alias exato + DOB; quando nome difere, DOB + nacionalidade corroborada + altura dentro da tolerância.
+- Mapear clube destino Transfermarkt para equipe PES por nome normalizado exato ou alias configurado.
+- Planejar apenas um movimento de clube por jogador, respeitando origem única e vaga real.
+- Saídas aceitas liberam slots para entradas subsequentes; IDs desconhecidos ocupam slots e são preservados.
+- Transferência não remove vínculo com seleção.
+- Vínculo de seleção do perfil é apenas sugestão, desmarcada por padrão na aplicação.
+- Preflight valida o plano inteiro antes de escrever em uma cópia; não há escrita parcial no arquivo de origem.
+
+8. TESTES
+- 20/20 testes automatizados aprovados (ver VALIDACAO_v1.0.txt).
+- Arquivos reais: 119 nomes de clubes/seleções + 32 competições, 3.926 nomes de jogadores + 64 clássicos.
+- data(3).bin: 1.113 referências de elenco desconhecidas mantidas, sem sobrescrever.
+- Movimentos em arquivos reais não testados porque a base CSV Transfermarkt não foi baixada no ambiente; algoritmos de plano foram testados em fixtures.
+
+9. LIMITAÇÕES / HIPÓTESES PENDENTES
+- Não é um parser universal para qualquer versão PES/console; suporta layout PES 2018 X360 conhecido e patches que mantêm offsets.
+- Não faz STFS repack/sign.
+- Fonte de clubes parada em julho; necessita snapshot mais atual para mercado em novembro.
+- Não há feed de convocação por data; seleção é sugestão de perfil.
+- `player_name_aliases.csv` ainda depende de aliases verificados caso a DOB/nacionalidade não seja suficiente para cruzar nome antigo.
+- Patches com nomes/IDs próprios podem precisar de team_aliases.csv e competition_aliases.csv específicos.
+- Não usar `youthClub` como associação atual.
+
+10. PRÓXIMO PASSO RECOMENDADO
+No Windows, executar v1.0 com cópia do EDIT original; carregar PlayersDB e depois arquivos estáticos Transfermarkt; gerar prévia e conferir quatro clubes de controle (Manchester United, Chelsea, Arsenal e Barcelona) antes de aplicar lote maior. Guardar logs TXT/JSON/CSV e salvar novo data.bin; reimportar em Horizon. Para atualizar mercado após julho/2026, carregar uma base estática mais nova com o mesmo esquema ou criar adaptador de fonte validada.

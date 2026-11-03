@@ -1,0 +1,49 @@
+PES 2018 X360 EDITOR — VALIDAÇÃO v1.0
+Data: 02/11/2026
+
+TESTES AUTOMATIZADOS
+- 20/20 testes aprovados com unittest + Tk em ambiente virtual X (xvfb).
+- Inclui: inicialização da UI, catálogo de 508 equipes, barra de ajuda, correção de nomes e desfazer, PlayersDB CSV/JSONL, logs, IDs Konami de 32 bits, preservação de IDs desconhecidos, transferência + seleção independente, bloqueio de IDs duplicados, alocação iterativa de slots, aliases históricos exatos, mapeamento separado de clubes/seleções e importação CSV.GZ/ZIP.
+- Comando executado:
+  xvfb-run -a python -m unittest discover -s tests -p 'test_*.py' -v
+
+TESTE COM ARQUIVOS REAIS DO USUÁRIO (EM MEMÓRIA; ORIGINAIS NÃO ALTERADOS)
+PlayersDB_20261102.csv:
+- 104.535 registros lidos.
+
+EDIT00000000(3) / data.bin extraído:
+- 5.203.344 bytes.
+- 13.290 registros de jogadores, 508 equipes, 45 competições.
+- 13.805 referências não vazias de elenco; 13.805 reconhecidas; 0 desconhecidas; 0 IDs Konami duplicados.
+- 119 nomes de clubes/seleções corrigidos.
+- 32 nomes de competições corrigidos.
+- 11.122 IDs Konami encontrados no PlayersDB.
+- 3.926 nomes de jogadores corrigidos pelo ID + registro PES 2018.
+- 64 nomes clássicos adicionais corrigidos por tabela histórica.
+- 2.168 linhas de jogador sem correspondência PlayersDB/PES 2018.
+
+ data(3).bin (arquivo modificado pelo usuário):
+- 5.203.344 bytes.
+- 13.733 registros de jogadores, 508 equipes, 45 competições.
+- 13.782 referências não vazias: 12.669 conhecidas e 1.113 desconhecidas.
+- As 1.113 referências desconhecidas foram preservadas; não são declaradas corrupção, pois podem pertencer a patches/versões anteriores.
+- 0 IDs Konami duplicados na tabela global.
+- 119 nomes de clubes/seleções corrigidos; 32 nomes de competições corrigidos.
+- 11.122 IDs Konami encontrados no PlayersDB.
+- 3.926 nomes de jogadores corrigidos pelo ID + registro PES 2018.
+- 64 nomes clássicos adicionais corrigidos por tabela histórica.
+- 2.611 linhas de jogador sem correspondência PlayersDB/PES 2018.
+
+LIMITES DA VALIDAÇÃO
+- Os testes com arquivos reais validaram leitura, identificação, correção de nomes e integridade de referências; não aplicaram movimentos de transferência nos arquivos reais.
+- A base CSV.GZ Transfermarkt não foi baixada nesta sessão por indisponibilidade de rede do ambiente de construção. O leitor manual CSV/CSV.GZ/ZIP e o algoritmo de transferência foram testados com arquivos sintéticos de teste.
+- Assim, não afirmamos que a atualização de todas as transferências reais já foi confirmada. O usuário deve carregar a base estática e revisar o relatório de prévia antes de aplicar.
+- O snapshot Transfermarkt disponível termina em 06/07/2026 e não contém elencos 2026/27. Não representa o mercado atual de novembro de 2026. Ao carregar CSV manual sem manifesto de data, a data exibida é apenas o corte padrão configurado, não uma verificação do arquivo manual.
+- A relação current_national_team_id indica vínculo de seleção no perfil; não é prova de convocação oficial para uma data. As sugestões de seleção ficam desmarcadas por padrão.
+- Layout validado: PES 2018 Xbox 360 conhecido, 5.203.344 bytes e variantes/patches que preservam offsets. Outros layouts são rejeitados.
+- STFS é lido e extraído; o pacote Xbox 360 não é reempacotado/reassinado.
+- O EXE não foi compilado no Windows nesta sessão; o BAT de compilação está incluído.
+
+CONCLUSÃO
+- Leitura, correção de nomes e segurança de slots validadas com os arquivos reais enviados.
+- Lógica de atualização de clubes e seleções implementada e testada por fixtures; depende de carregar a base Transfermarkt estática para uma atualização real.

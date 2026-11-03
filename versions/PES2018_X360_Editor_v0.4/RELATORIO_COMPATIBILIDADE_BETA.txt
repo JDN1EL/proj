@@ -1,0 +1,24 @@
+PES2018 X360 Editor v0.4 Beta — relatório de testes
+
+Implementado:
+- Preservação do código e recursos da v0.4.
+- Ordenação alfabética sem acentos/caixa.
+- Abertura de data.bin e EDIT CON/STFS (extração e validação em memória).
+- Transferir: remove do elenco de origem, compacta e adiciona ao destino.
+- Adicionar: inclui jogador sem remover associação anterior.
+- Convocar: fluxo separado de inclusão sem remover associação anterior.
+- Salvamento em cópia data.bin; pacote EDIT original nunca é sobrescrito.
+
+Testes executados neste ambiente:
+- 16 testes binários/regressão da v0.4: APROVADOS em duas amostras data.bin.
+- 8 testes de operações beta/abertura de EDIT: APROVADOS.
+- Teste de interface Tkinter com janela virtual: APROVADO.
+- Teste de abertura de pacote EDIT CON: APROVADO; data.bin extraído e 13.290 jogadores carregados.
+
+Limitações:
+- As duas amostras data.bin e os dois pacotes EDIT disponíveis no Library são anteriores e seus hashes não correspondem aos arquivos A/B do relatório mais recente (SHA-256 a973873c... e 140c65a3...).
+- Portanto, as operações foram validadas estruturalmente nos arquivos de amostra, mas ainda precisam ser testadas com o par A/B exato e no Xbox 360.
+- O editor não reconstrói nem assina CON/STFS. Ao abrir EDIT, salva um data.bin separado para substituição manual pelo Horizon.
+- Convocar e Adicionar usam a mesma estrutura binária de inclusão; não foi identificado campo específico de convocação.
+
+Atenção: Beta experimental. Testar somente em cópia do EDIT e manter o original intacto.

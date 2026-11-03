@@ -1,0 +1,348 @@
+﻿team_id;alias;official_name;notes
+55;MAN RED;Manchester United;Nome fictício PES 2018
+55;Manchester United;Manchester United;Nome oficial
+57;LONDON FC;Chelsea FC;Nome fictício PES 2018
+57;Chelsea FC;Chelsea FC;Nome oficial
+59;YORKSHIRE WHITES;Leeds United;Nome fictício PES 2018
+59;Leeds United;Leeds United;Nome oficial
+64;MD WHITE;Real Madrid;Nome fictício PES 2018
+64;Real Madrid;Real Madrid;Nome oficial
+64;Real Madrid CF;Real Madrid;Variação verificada/normalização de nome
+60;EAST LONDON;West Ham United;Nome fictício PES 2018
+60;West Ham United;West Ham United;Nome oficial
+61;TYNESIDE;Newcastle United;Nome fictício PES 2018
+61;Newcastle United;Newcastle United;Nome oficial
+62;WEST MIDLANDS VILLAGE;Aston Villa;Nome fictício PES 2018
+62;Aston Villa;Aston Villa;Nome oficial
+66;GA BLUE WHITE;Deportivo de La Coruña;Nome fictício PES 2018
+66;Deportivo de La Coruña;Deportivo de La Coruña;Nome oficial
+66;Deportivo La Coruna;Deportivo de La Coruña;Variação verificada/normalização de nome
+66;Deportivo La Coruña;Deportivo de La Coruña;Variação verificada/normalização de nome
+66;RC Deportivo;Deportivo de La Coruña;Variação verificada/normalização de nome
+66;Deportivo de La Coruna;Deportivo de La Coruña;Variação verificada/normalização de nome
+75;PM BLACK WHITE;Juventus;Nome fictício PES 2018
+75;Juventus;Juventus;Nome oficial
+78;ER YELLOW BLUE;Parma;Nome fictício PES 2018
+78;Parma;Parma;Nome oficial
+92;MAN BLUE;Manchester City;Nome fictício PES 2018
+92;Manchester City;Manchester City;Nome oficial
+94;MERSEYSIDE BLUE;Everton;Nome fictício PES 2018
+94;Everton;Everton;Nome oficial
+96;NORTH EAST LONDON;Tottenham Hotspur;Nome fictício PES 2018
+96;Tottenham Hotspur;Tottenham Hotspur;Nome oficial
+102;BRUTIE;Brescia;Nome fictício PES 2018
+102;Brescia;Brescia;Nome oficial
+108;AN GREEN WHITE;Real Betis;Nome fictício PES 2018
+108;Real Betis;Real Betis;Nome oficial
+108;Real Betis Balompie;Real Betis;Variação verificada/normalização de nome
+108;Real Betis Balompié;Real Betis;Variação verificada/normalização de nome
+108;Betis;Real Betis;Variação verificada/normalização de nome
+109;GA CYAN;Celta de Vigo;Nome fictício PES 2018
+109;Celta de Vigo;Celta de Vigo;Nome oficial
+110;PV BLUE WHITE;Real Sociedad;Nome fictício PES 2018
+110;Real Sociedad;Real Sociedad;Nome oficial
+110;Real Sociedad de Futbol;Real Sociedad;Variação verificada/normalização de nome
+110;Real Sociedad de Fútbol;Real Sociedad;Variação verificada/normalização de nome
+115;WEST MIDLANDS CITY;Birmingham City;Nome fictício PES 2018
+115;Birmingham City;Birmingham City;Nome oficial
+116;NW WHITE BLACK;Bolton Wanderers;Nome fictício PES 2018
+116;Bolton Wanderers;Bolton Wanderers;Nome oficial
+117;EAST MIDLANDS;Leicester City;Nome fictício PES 2018
+117;Leicester City;Leicester City;Nome oficial
+118;TEESSIDE;Middlesbrough;Nome fictício PES 2018
+118;Middlesbrough;Middlesbrough;Nome oficial
+119;HAMPSHIRE RED;Southampton;Nome fictício PES 2018
+119;Southampton;Southampton;Nome oficial
+120;WM GOLD;Wolverhampton Wanderers;Nome fictício PES 2018
+120;Wolverhampton Wanderers;Wolverhampton Wanderers;Nome oficial
+132;TO BLUE;Empoli;Nome fictício PES 2018
+132;Empoli;Empoli;Nome oficial
+132;Empoli FC;Empoli;Variação verificada/normalização de nome
+133;SI PINK BLACK;Palermo;Nome fictício PES 2018
+133;Palermo;Palermo;Nome oficial
+133;Palermo FC;Palermo;Variação verificada/normalização de nome
+146;PV WHITE RED;Athletic Club;Nome fictício PES 2018
+146;Athletic Club;Athletic Club;Nome oficial
+146;Athletic Bilbao;Athletic Club;Variação verificada/normalização de nome
+146;Athletic Club Bilbao;Athletic Club;Variação verificada/normalização de nome
+147;CT BLUE WHITE;Espanyol;Nome fictício PES 2018
+147;Espanyol;Espanyol;Nome oficial
+147;RCD Espanyol;Espanyol;Variação verificada/normalização de nome
+147;Espanyol Barcelona;Espanyol;Variação verificada/normalização de nome
+148;AN CYAN WHITE;Málaga;Nome fictício PES 2018
+148;Málaga;Málaga;Nome oficial
+148;Malaga CF;Málaga;Variação verificada/normalização de nome
+148;Málaga CF;Málaga;Variação verificada/normalização de nome
+149;NC RED;Osasuna;Nome fictício PES 2018
+149;Osasuna;Osasuna;Nome oficial
+150;AN WHITE RED;Sevilla;Nome fictício PES 2018
+150;Sevilla;Sevilla;Nome oficial
+151;CL PURPLE;Real Valladolid;Nome fictício PES 2018
+151;Real Valladolid;Real Valladolid;Nome oficial
+151;Real Valladolid CF;Real Valladolid;Variação verificada/normalização de nome
+151;Real Valladolid Club de Futbol;Real Valladolid;Variação verificada/normalização de nome
+152;ED YELLOW;Villarreal;Nome fictício PES 2018
+152;Villarreal;Villarreal;Nome oficial
+153;AR WHITE BLUE;Real Zaragoza;Nome fictício PES 2018
+153;Real Zaragoza;Real Zaragoza;Nome oficial
+153;Real Zaragoza CF;Real Zaragoza;Variação verificada/normalização de nome
+158;MA ZEBRA;Ascoli;Nome fictício PES 2018
+158;Ascoli;Ascoli;Nome oficial
+158;Ascoli Calcio;Ascoli;Variação verificada/normalização de nome
+159;BAGNARONI;Bari;Nome fictício PES 2018
+159;Bari;Bari;Nome oficial
+159;SSC Bari;Bari;Variação verificada/normalização de nome
+163;AB WHITE LIGHT BLUE;Pescara;Nome fictício PES 2018
+163;Pescara;Pescara;Nome oficial
+163;Delfino Pescara;Pescara;Variação verificada/normalização de nome
+164;TECCARINA;Ternana;Nome fictício PES 2018
+164;Ternana;Ternana;Nome oficial
+164;Ternana Calcio;Ternana;Variação verificada/normalização de nome
+171;AN SCARLET WHITE;Almería;Nome fictício PES 2018
+171;Almería;Almería;Nome oficial
+171;UD Almeria;Almería;Variação verificada/normalização de nome
+172;AN VIRIDIAN WHITE;Córdoba;Nome fictício PES 2018
+172;Córdoba;Córdoba;Nome oficial
+172;Cordoba CF;Córdoba;Variação verificada/normalização de nome
+173;MD COBALT BLUE;Getafe;Nome fictício PES 2018
+173;Getafe;Getafe;Nome oficial
+173;Getafe CF;Getafe;Variação verificada/normalização de nome
+174;AS RED WHITE;Sporting Gijón;Nome fictício PES 2018
+174;Sporting Gijón;Sporting Gijón;Nome oficial
+174;Sporting de Gijon;Sporting Gijón;Variação verificada/normalização de nome
+175;CN YELLOW BLUE;Las Palmas;Nome fictício PES 2018
+175;Las Palmas;Las Palmas;Nome oficial
+175;UD Las Palmas;Las Palmas;Variação verificada/normalização de nome
+176;ED BLUE BURGUNDY;Levante;Nome fictício PES 2018
+176;Levante;Levante;Nome oficial
+176;Levante UD;Levante;Variação verificada/normalização de nome
+177;CL RED;Numancia;Nome fictício PES 2018
+177;Numancia;Numancia;Nome oficial
+177;CD Numancia;Numancia;Variação verificada/normalização de nome
+178;MD SCARLET WHITE;Rayo Vallecano;Nome fictício PES 2018
+178;Rayo Vallecano;Rayo Vallecano;Nome oficial
+179;EAST SUSSEX;Brighton & Hove Albion;Nome fictício PES 2018
+179;Brighton & Hove Albion;Brighton & Hove Albion;Nome oficial
+179;Brighton and Hove Albion;Brighton & Hove Albion;Variação verificada/normalização de nome
+180;LANCASHIRE CLARET;Burnley;Nome fictício PES 2018
+180;Burnley;Burnley;Nome oficial
+180;Burnley FC;Burnley;Variação verificada/normalização de nome
+181;SOUTH WALES;Cardiff City;Nome fictício PES 2018
+181;Cardiff City;Cardiff City;Nome oficial
+181;Cardiff City FC;Cardiff City;Variação verificada/normalização de nome
+182;SOUTH NORWOOD;Crystal Palace;Nome fictício PES 2018
+182;Crystal Palace;Crystal Palace;Nome oficial
+182;Crystal Palace FC;Crystal Palace;Variação verificada/normalização de nome
+183;DERBYSHIRE;Derby County;Nome fictício PES 2018
+183;Derby County;Derby County;Nome oficial
+183;Derby County FC;Derby County;Variação verificada/normalização de nome
+184;EAST ANGLIA TOWN;Ipswich Town;Nome fictício PES 2018
+184;Ipswich Town;Ipswich Town;Nome oficial
+184;Ipswich Town FC;Ipswich Town;Variação verificada/normalização de nome
+185;GL BLUE WHITE;Millwall;Nome fictício PES 2018
+185;Millwall;Millwall;Nome oficial
+185;Millwall FC;Millwall;Variação verificada/normalização de nome
+186;NORFOLK CITY;Norwich City;Nome fictício PES 2018
+186;Norwich City;Norwich City;Nome oficial
+186;Norwich City FC;Norwich City;Variação verificada/normalização de nome
+187;NOTTS REDS;Nottingham Forest;Nome fictício PES 2018
+187;Nottingham Forest;Nottingham Forest;Nome oficial
+187;Nottingham Forest FC;Nottingham Forest;Variação verificada/normalização de nome
+188;BERKSHIRE BLUES;Reading;Nome fictício PES 2018
+188;Reading;Reading;Nome oficial
+188;Reading FC;Reading;Variação verificada/normalização de nome
+189;SOUTH YORKSHIRE BLUES;Sheffield Wednesday;Nome fictício PES 2018
+189;Sheffield Wednesday;Sheffield Wednesday;Nome oficial
+189;Sheffield Wednesday FC;Sheffield Wednesday;Variação verificada/normalização de nome
+190;ST RED;Stoke City;Nome fictício PES 2018
+190;Stoke City;Stoke City;Nome oficial
+190;Stoke City FC;Stoke City;Variação verificada/normalização de nome
+191;WEARSIDE;Sunderland;Nome fictício PES 2018
+191;Sunderland;Sunderland;Nome oficial
+191;Sunderland AFC;Sunderland;Variação verificada/normalização de nome
+192;HERTFORDSHIRE;Watford;Nome fictício PES 2018
+192;Watford;Watford;Nome oficial
+192;Watford FC;Watford;Variação verificada/normalização de nome
+193;WEST MIDLANDS STRIPES;West Bromwich Albion;Nome fictício PES 2018
+193;West Bromwich Albion;West Bromwich Albion;Nome oficial
+193;West Bromwich Albion FC;West Bromwich Albion;Variação verificada/normalização de nome
+257;NORTH WEST LONDON;Queens Park Rangers;Nome fictício PES 2018
+257;Queens Park Rangers;Queens Park Rangers;Nome oficial
+257;Queens Park Rangers FC;Queens Park Rangers;Variação verificada/normalização de nome
+261;ER BLACK WHITE;Cesena;Nome fictício PES 2018
+261;Cesena;Cesena;Nome oficial
+263;PLEASURE HORN;Al Ahly;Nome fictício PES 2018
+263;Al Ahly;Al Ahly;Nome oficial
+263;Al Ahly SC;Al Ahly;Variação verificada/normalização de nome
+266;SY RED;Barnsley;Nome fictício PES 2018
+266;Barnsley;Barnsley;Nome oficial
+266;Barnsley FC;Barnsley;Variação verificada/normalização de nome
+267;YORKSHIRE ORANGE;Hull City;Nome fictício PES 2018
+267;Hull City;Hull City;Nome oficial
+267;Hull City AFC;Hull City;Variação verificada/normalização de nome
+268;SPREMONESE;Spezia;Nome fictício PES 2018
+268;Spezia;Spezia;Nome oficial
+268;Spezia Calcio;Spezia;Variação verificada/normalização de nome
+272;SW RED;Bristol City;Nome fictício PES 2018
+272;Bristol City;Bristol City;Nome oficial
+272;Bristol City FC;Bristol City;Variação verificada/normalização de nome
+273;AN RED WHITE;Granada;Nome fictício PES 2018
+273;Granada;Granada;Nome oficial
+273;Granada CF;Granada;Variação verificada/normalização de nome
+274;VISICUTAO;Vitoria SC;Nome fictício PES 2018
+274;Vitoria SC;Vitoria SC;Nome oficial
+274;Vitoria Guimaraes;Vitoria SC;Variação verificada/normalização de nome
+274;Vitória de Guimarães;Vitoria SC;Variação verificada/normalização de nome
+274;Vitoria Sport Clube;Vitoria SC;Variação verificada/normalização de nome
+275;WEST GLAMORGAN CITY;Swansea City;Nome fictício PES 2018
+275;Swansea City;Swansea City;Nome oficial
+275;Swansea City AFC;Swansea City;Variação verificada/normalização de nome
+278;DL CRIMSON;Cittadella;Nome fictício PES 2018
+278;Cittadella;Cittadella;Nome oficial
+278;AS Cittadella;Cittadella;Variação verificada/normalização de nome
+292;BLEMOTAO;Belenenses;Nome fictício PES 2018
+292;Belenenses;Belenenses;Nome oficial
+292;Os Belenenses;Belenenses;Variação verificada/normalização de nome
+293;BRESIGNE;Braga;Nome fictício PES 2018
+293;Braga;Braga;Nome oficial
+293;SC Braga;Braga;Variação verificada/normalização de nome
+294;MASEADEIRA;Marítimo;Nome fictício PES 2018
+294;Marítimo;Marítimo;Nome oficial
+294;CS Maritimo;Marítimo;Variação verificada/normalização de nome
+295;PODEFTEZA;Paços de Ferreira;Nome fictício PES 2018
+295;Paços de Ferreira;Paços de Ferreira;Nome oficial
+295;FC Pacos de Ferreira;Paços de Ferreira;Variação verificada/normalização de nome
+295;FC Paços de Ferreira;Paços de Ferreira;Variação verificada/normalização de nome
+296;ROVANECHE;Rio Ave;Nome fictício PES 2018
+296;Rio Ave;Rio Ave;Nome oficial
+296;Rio Ave FC;Rio Ave;Variação verificada/normalização de nome
+297;VERFOLCAO;Vitória de Setúbal;Nome fictício PES 2018
+297;Vitória de Setúbal;Vitória de Setúbal;Nome oficial
+297;Vitoria Setubal;Vitória de Setúbal;Variação verificada/normalização de nome
+297;Vitória Setúbal;Vitória de Setúbal;Variação verificada/normalização de nome
+298;CT CARMINE WHITE;Girona;Nome fictício PES 2018
+298;Girona;Girona;Nome oficial
+298;Girona FC;Girona;Variação verificada/normalização de nome
+299;AR BURGUNDY BLUE;Huesca;Nome fictício PES 2018
+299;Huesca;Huesca;Nome oficial
+299;SD Huesca;Huesca;Variação verificada/normalização de nome
+328;AL BLACK WHITE;Portimonense;Nome fictício PES 2018
+328;Portimonense;Portimonense;Nome oficial
+328;Portimonense SC;Portimonense;Variação verificada/normalização de nome
+329;PM BLUE WHITE;Novara;Nome fictício PES 2018
+329;Novara;Novara;Nome oficial
+329;Novara Calcio;Novara;Variação verificada/normalização de nome
+330;BJ RED;Desportivo das Aves;Nome fictício PES 2018
+330;Desportivo das Aves;Desportivo das Aves;Nome oficial
+330;CD Aves;Desportivo das Aves;Variação verificada/normalização de nome
+331;ESTRALPAO;Estoril Praia;Nome fictício PES 2018
+331;Estoril Praia;Estoril Praia;Nome oficial
+331;GD Estoril Praia;Estoril Praia;Variação verificada/normalização de nome
+332;DL AZURE BLUE;Feirense;Nome fictício PES 2018
+332;Feirense;Feirense;Nome oficial
+332;CD Feirense;Feirense;Variação verificada/normalização de nome
+333;MERASZILHO;Moreirense;Nome fictício PES 2018
+333;Moreirense;Moreirense;Nome oficial
+333;Moreirense FC;Moreirense;Variação verificada/normalização de nome
+334;MD CANARY YELLOW;Alcorcón;Nome fictício PES 2018
+334;Alcorcón;Alcorcón;Nome oficial
+334;AD Alcorcon;Alcorcón;Variação verificada/normalização de nome
+382;PAILAMUDOVELI;Pro Vercelli;Nome fictício PES 2018
+382;Pro Vercelli;Pro Vercelli;Nome oficial
+382;Pro Vercelli 1892;Pro Vercelli;Variação verificada/normalização de nome
+383;BA YELLOW GREEN;Tondela;Nome fictício PES 2018
+383;Tondela;Tondela;Nome oficial
+383;CD Tondela;Tondela;Variação verificada/normalização de nome
+384;GA RED WHITE;Lugo;Nome fictício PES 2018
+384;Lugo;Lugo;Nome oficial
+384;CD Lugo;Lugo;Variação verificada/normalização de nome
+380;WEST YORKSHIRE TOWN;Huddersfield Town;Nome fictício PES 2018
+380;Huddersfield Town;Huddersfield Town;Nome oficial
+380;Huddersfield Town AFC;Huddersfield Town;Variação verificada/normalização de nome
+429;EAST DORSETSHIRE;AFC Bournemouth;Nome fictício PES 2018
+429;AFC Bournemouth;AFC Bournemouth;Nome oficial
+430;ER WHITE RED;Carpi;Nome fictício PES 2018
+430;Carpi;Carpi;Nome oficial
+430;AC Carpi;Carpi;Variação verificada/normalização de nome
+431;TM BLUE RED;Chaves;Nome fictício PES 2018
+431;Chaves;Chaves;Nome oficial
+431;GD Chaves;Chaves;Variação verificada/normalização de nome
+432;CT BLUE RED B;Barcelona B;Nome fictício PES 2018
+432;Barcelona B;Barcelona B;Nome oficial
+432;FC Barcelona B;Barcelona B;Variação verificada/normalização de nome
+435;ALVEGIARO;Avellino;Nome fictício PES 2018
+435;Avellino;Avellino;Nome oficial
+435;US Avellino;Avellino;Variação verificada/normalização de nome
+436;PV SKY BLUE WHITE;Deportivo Alavés;Nome fictício PES 2018
+436;Deportivo Alavés;Deportivo Alavés;Nome oficial
+436;Deportivo Alaves;Deportivo Alavés;Variação verificada/normalização de nome
+437;PV BLUE RED;Eibar;Nome fictício PES 2018
+437;Eibar;Eibar;Nome oficial
+437;SD Eibar;Eibar;Variação verificada/normalização de nome
+438;CN WHITE BLUE;Tenerife;Nome fictício PES 2018
+438;Tenerife;Tenerife;Nome oficial
+438;CD Tenerife;Tenerife;Variação verificada/normalização de nome
+439;HOUNSLOW;Brentford;Nome fictício PES 2018
+439;Brentford;Brentford;Nome oficial
+439;Brentford FC;Brentford;Variação verificada/normalização de nome
+440;LN WHITE;Preston North End;Nome fictício PES 2018
+440;Preston North End;Preston North End;Nome oficial
+440;Preston North End FC;Preston North End;Variação verificada/normalização de nome
+441;YH RED BLACK;Sheffield United;Nome fictício PES 2018
+441;Sheffield United;Sheffield United;Nome oficial
+441;Sheffield United FC;Sheffield United;Variação verificada/normalização de nome
+446;LB RED GREY;Cremonese;Nome fictício PES 2018
+446;Cremonese;Cremonese;Nome oficial
+446;US Cremonese;Cremonese;Variação verificada/normalização de nome
+447;DL GREEN BLACK ORANGE;Venezia;Nome fictício PES 2018
+447;Venezia;Venezia;Nome oficial
+447;Venezia FC;Venezia;Variação verificada/normalização de nome
+448;LR WHITE BLUE;Virtus Entella;Nome fictício PES 2018
+448;Virtus Entella;Virtus Entella;Nome oficial
+450;TI YELLOW BLUE;Frosinone;Nome fictício PES 2018
+450;Frosinone;Frosinone;Nome oficial
+450;Frosinone Calcio;Frosinone;Variação verificada/normalização de nome
+451;PRASTOGNA;Perugia;Nome fictício PES 2018
+451;Perugia;Perugia;Nome oficial
+451;AC Perugia;Perugia;Variação verificada/normalização de nome
+452;CM BURGUNDY;Salernitana;Nome fictício PES 2018
+452;Salernitana;Salernitana;Nome oficial
+452;US Salernitana;Salernitana;Variação verificada/normalização de nome
+453;CL BLACK WHITE;Cultural Leonesa;Nome fictício PES 2018
+453;Cultural Leonesa;Cultural Leonesa;Nome oficial
+453;Cultural y Deportiva Leonesa;Cultural Leonesa;Variação verificada/normalização de nome
+454;AS BLUE;Real Oviedo;Nome fictício PES 2018
+454;Real Oviedo;Real Oviedo;Nome oficial
+455;MD BLUE WHITE;Leganés;Nome fictício PES 2018
+455;Leganés;Leganés;Nome oficial
+455;CD Leganes;Leganés;Variação verificada/normalização de nome
+455;CD Leganés;Leganés;Variação verificada/normalização de nome
+456;CT RED;Gimnàstic de Tarragona;Nome fictício PES 2018
+456;Gimnàstic de Tarragona;Gimnàstic de Tarragona;Nome oficial
+456;Gimnastic Tarragona;Gimnàstic de Tarragona;Variação verificada/normalização de nome
+457;CT RED BLACK;Reus Deportiu;Nome fictício PES 2018
+457;Reus Deportiu;Reus Deportiu;Nome oficial
+457;CF Reus Deportiu;Reus Deportiu;Variação verificada/normalização de nome
+458;CM WHITE BLACK;Albacete;Nome fictício PES 2018
+458;Albacete;Albacete;Nome oficial
+458;Albacete Balompie;Albacete;Variação verificada/normalização de nome
+458;Albacete Balompié;Albacete;Variação verificada/normalização de nome
+459;AN YELLOW BLUE;Cádiz;Nome fictício PES 2018
+459;Cádiz;Cádiz;Nome oficial
+459;Cadiz CF;Cádiz;Variação verificada/normalização de nome
+459;Cádiz CF;Cádiz;Variação verificada/normalização de nome
+460;MC BLUE WHITE;Lorca;Nome fictício PES 2018
+460;Lorca;Lorca;Nome oficial
+460;Lorca FC;Lorca;Variação verificada/normalização de nome
+461;AN WHITE RED B;Sevilla Atlético;Nome fictício PES 2018
+461;Sevilla Atlético;Sevilla Atlético;Nome oficial
+461;Sevilla Atletico;Sevilla Atlético;Variação verificada/normalização de nome
+463;BORFECAO;Boavista;Nome fictício PES 2018
+463;Boavista;Boavista;Nome oficial
+463;Boavista FC;Boavista;Variação verificada/normalização de nome
+466;PL RED BLACK;Foggia;Nome fictício PES 2018
+466;Foggia;Foggia;Nome oficial
+466;Calcio Foggia;Foggia;Variação verificada/normalização de nome
+470;ST YELLOW;Burton Albion;Nome fictício PES 2018
+470;Burton Albion;Burton Albion;Nome oficial
+470;Burton Albion FC;Burton Albion;Variação verificada/normalização de nome

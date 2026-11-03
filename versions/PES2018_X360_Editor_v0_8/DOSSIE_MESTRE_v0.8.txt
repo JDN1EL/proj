@@ -1,0 +1,87 @@
+DOSSIE MESTRE — PES 2018 XBOX 360 EDITOR
+Versão: 0.8
+Data: 2026-11-02
+
+1. OBJETIVO
+Editor independente para data.bin extraído do EDIT00000000 do PES 2018 Xbox 360/RGH. Esta versão remove todos os conectores de API e passa a usar uma base PlayersDB local (CSV ou JSONL) para nomes e elencos.
+
+2. ALTERAÇÕES PRINCIPAIS
+- Aba Jogadores + aba Clubes / Seleções lado a lado.
+- Clubes: lista e exibe elenco atual.
+- Transferir jogador: move entre clubes, mantendo a presença em seleções.
+- Convocar para seleção: acrescenta à seleção sem remover o jogador do clube.
+- Adicionar jogador ao elenco: acrescenta jogador livre se houver uma das 32 vagas; jogador já vinculado a outro clube deve ser transferido.
+- Ajuda contextual numa faixa horizontal inferior; controles mostram uma explicação ao passar o mouse ou clicar.
+- Salvamento atômico e backup .bak preservados.
+
+3. PLAYERSDB
+- Fonte: https://playersdb.app/.
+- O site informa datasets CSV e JSONL, base geral da série PES/eFootball e atualizações publicadas. A versão consultada na construção estava marcada 2026.10.29; não significa que todos os elencos da edição PES 2018 Xbox 360 estejam completos.
+- O editor tenta ler a homepage, encontrar links CSV/JSONL e descarregar CSV (prioridade) ou JSONL. Download e parsing ocorrem fora da thread principal da interface.
+- Falha de download/descoberta abre diálogo com site e oferece carregar manualmente CSV/JSONL.
+- Arquivos baixados guardados em %APPDATA%\PES2018_X360_Editor\database.
+- Cabeçalhos reconhecidos incluem PES ID/Konami ID/Player ID, Player/Player Name/Name, Position, Nationality, Height, Weight, Age, Team Name(s)/Team Names/Team Name/Teams.
+- CSV tem autodetecção de delimitador (, ; TAB); JSONL é lido linha a linha.
+- IDs PES são usados como chave principal, quando únicos. Nome exato único é fallback para registros sem ID.
+- Team Name(s) é dividido por vírgula, ponto e vírgula ou pipe.
+
+4. LÓGICA DE NOMES E ELENCOS
+- Para cada equipe no data.bin, o editor percorre IDs do elenco atual e consulta os registros PlayersDB por ID PES.
+- Nomes oficiais candidatos são votados a partir de Team Name(s).
+- A equipe só é renomeada quando o candidato tem pelo menos 3 votos, pelo menos 40% do total e margem de 2 votos para o segundo candidato.
+- Jogador com PES ID único é renomeado pelo mesmo ID quando dentro do player_count e da capacidade conhecida.
+- Para cada equipe reconhecida, o editor obtém registros PlayersDB que listam aquele Team Name(s).
+- Registros de jogador: apenas IDs 1–20.999 e dentro do espaço físico do data.bin são considerados. Um registro vazio pode receber nome, idade, altura e peso; os demais atributos permanecem zerados. Não preencher automaticamente estatísticas ou habilidades com valores inventados.
+- Elenco só é substituído se o conjunto resultante tiver pelo menos 8 jogadores e é limitado a 32. Números de camisa são zerados para revisão posterior.
+- Importante: PlayersDB reúne dados de várias gerações de PES/eFootball. A associação por Team Name(s) é a informação disponível no dataset, mas a validade de cada lista para o PES 2018 Xbox 360 exige revisão com arquivo real.
+
+5. MAPEAMENTO BINÁRIO CONHECIDO
+- PLAYER_COUNT_OFFSET=0x60
+- TEAM_COUNT_OFFSET=0x64
+- ROSTER_COUNT_OFFSET=0x70
+- PLAYER_TABLE_OFFSET=0x7C
+- PLAYER_STRIDE=0xBC
+- PLAYER_CAPACITY=21000
+- TEAM_TABLE_OFFSET=PLAYER_TABLE_OFFSET+PLAYER_CAPACITY*PLAYER_STRIDE
+- TEAM_STRIDE=0x1E0
+- ROSTER_TABLE_OFFSET=0x46FF54
+- ROSTER_STRIDE=0xA4
+- TACTICS_TABLE_OFFSET=0x488B74
+- TACTICS_STRIDE=0x274
+- TEAM_NAME_REL=0x98, TEAM_NAME_SIZE=70
+- TEAM_SHORT_REL=0xDE, TEAM_SHORT_SIZE=3
+- ROSTER_PLAYER_REL=0x04, 32 slots
+- ROSTER_NUMBERS_REL=0x84
+- PLAYER_NAME_REL=0x34, PLAYER_NAME_SIZE=46
+
+6. COMPETIÇÕES — NÃO IMPLEMENTADO
+O código anterior não continha leitura/escrita da tabela de nomes de competições e não há data.bin real anexado para fazer análise diferencial. O offset da estrutura não foi estabelecido com evidência. A v0.8 não altera competições para evitar gravar em região errada e corromper o banco. Próximo passo: obter um data.bin real do usuário e comparar com referência conhecida ou examinar layout de tabela de competições em ferramenta PES compatível.
+
+7. STFS / CONSOLE
+- Abre somente data.bin extraído/descriptografado.
+- Não descriptografa, reempacota, recalcula hashes STFS ou reassina CON/LIVE/PIRS/EDIT.
+- Reimportação no contêiner deve ser feita por ferramenta externa.
+
+8. TESTES EXECUTADOS NA CONSTRUÇÃO
+- py_compile: editor, parser e testes.
+- test_playersdb_local: colunas, ID PES, nomes, altura/peso e associações de CSV/JSONL.
+- test_atomic_save: leitura de retorno, backup .bak e destino novo.
+- test_playersdb_apply: identificação por ID PES, votação de nome de equipe, criação em slot vazio e inclusão no elenco.
+- Inicialização real da interface Tkinter sob Xvfb: aba Clubes/Seleções e ilha de ajuda presentes.
+- Resultado: todos os testes offline passaram.
+
+9. TESTES NÃO EXECUTADOS / LIMITAÇÕES
+- Não foi possível fazer download HTTP direto neste ambiente de construção; autodiscovery da página PlayersDB não foi confirmado contra o servidor. Fallback manual incluído.
+- Não foi testada a importação com o CSV/JSONL oficial real, apenas arquivos sintéticos com os cabeçalhos documentados pelo site.
+- Não foi testado com data.bin real do usuário. Associação de IDs PES ao índice de registro exige validação no primeiro arquivo real.
+- Nomes de competições não são alterados.
+- Não houve compilação do EXE Windows nem teste no Xbox 360 RGH.
+- Novos registros recebem apenas campos básicos disponíveis; atributos PES, skills, COM styles e animações devem ser revisados.
+
+10. PRÓXIMO PASSO
+1. Abrir um data.bin original extraído.
+2. Permitir download PlayersDB ou carregar CSV/JSONL manualmente.
+3. Conferir no resumo quantos clubes e elencos foram reconhecidos; não salvar automaticamente.
+4. Validar pelo menos seleções Brasil/Portugal e clubes com jogadores conhecidos.
+5. Só então salvar uma cópia e reimportar com ferramenta externa.
+6. Para v0.9, investigar com data.bin real a estrutura das competições e validar correspondência de IDs PES.

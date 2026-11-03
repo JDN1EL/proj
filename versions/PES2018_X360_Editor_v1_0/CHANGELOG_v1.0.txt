@@ -1,0 +1,25 @@
+PES 2018 XBOX 360 EDITOR — CHANGELOG v1.0
+Data: 02/11/2026
+
+- Integração do PlayersDB real por konamiID e game_versions contendo PES 2018.
+- Correção de nomes de jogadores por Konami ID, com relatório CSV; nomes clássicos adicionais por aliases históricos.
+- Atualização de mapas de nomes de clubes/seleções e competições por ID + alias exato.
+- Leitura de dados estáticos Transfermarkt em CSV/CSV.GZ/ZIP, sem APIs esportivas.
+- Associação de jogadores por nome/data de nascimento, aliases, altura e nacionalidade corroborada; sem fuzzy matching global.
+- Mapeamento de clubes e seleções por nome/alias exato e IDs PES conhecidos.
+- Planejador de transferências, inclusão de jogadores em vaga livre e sugestões de vínculo de seleção.
+- Sugestões de seleção desabilitadas por padrão: current_national_team_id não comprova convocação oficial em uma data específica.
+- Transferências simultâneas alocam vagas iterativamente; saídas aceitas liberam slots reais para entradas posteriores.
+- Pré-validação de plano completo antes da escrita; cópia de estruturas de roster para evitar mutação acidental durante preflight.
+- IDs de jogadores de patches não reconhecidos são preservados e considerados slots ocupados.
+- Bloqueio de análise de elencos quando há Konami IDs duplicados na tabela global.
+- Logs e prévia CSV/JSON para auditoria.
+- Documentação e testes atualizados; 20 testes automatizados aprovados nesta construção.
+
+LIMITAÇÕES CONHECIDAS
+- Snapshot Transfermarkt público desta versão termina em 06/07/2026; não inclui elencos 2026/27 e o projeto indicou que as atualizações estão pausadas.
+- O download real da base Transfermarkt e uma atualização completa em arquivo de usuário não puderam ser validados neste ambiente; os algoritmos de associação/transferência foram testados com fixtures sintéticos.
+- Não há feed de convocados oficiais por partida/data.
+- O editor só suporta o layout PES 2018 Xbox 360 conhecido e patches que preservem offsets.
+- Lê/extrai STFS; não reempacota nem reassina o EDIT.
+- EXE precisa ser compilado no Windows; não foi compilado nesta sessão.

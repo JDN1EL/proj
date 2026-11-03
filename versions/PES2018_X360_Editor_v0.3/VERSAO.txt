@@ -1,0 +1,5 @@
+PES 2018 Xbox 360 — Editor v0.3
+Compatível com variantes PES 2018 no layout analisado.
+Testado com 508 e 510 equipes/elencos.
+Formações/táticas: visualização e cópia de bloco completo.
+Integração criptográfica do save Xbox 360: aguardando primeiro teste no console.

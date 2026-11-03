@@ -1,0 +1,14 @@
+PES 2018 XBOX 360 EDITOR — v0.8
+Data: 2026-11-02
+
+- Removidos integralmente os conectores API-Football, Sportmonks e football-data.org, arquivos de configuração e testes relacionados.
+- Adicionado importador local PlayersDB para CSV e JSONL.
+- Adicionada descoberta de links de download na página PlayersDB, download em thread separada e fallback com link do site + seleção manual de arquivo.
+- Adicionada aba Clubes / Seleções ao lado da aba Jogadores.
+- A aba de equipes mostra os elencos e oferece transferir jogador, convocar à seleção e adicionar jogador livre quando há vaga.
+- Transferência entre clubes preserva o jogador em seleções nacionais; convocação não remove o jogador do clube.
+- Associação de nomes/equipes usa ID PES e consenso dos vínculos Team Name(s), sem fuzzy matching global.
+- Elencos somente são substituídos quando ao menos 8 IDs válidos são identificados; limite de 32 vagas.
+- Adicionada ilha horizontal de ajuda que descreve controles ao passar o mouse ou clicar.
+- Mantidos salvamento atômico, verificação de gravação, backup .bak, desfazer/refazer e logs locais.
+- Nomes de competições permanecem inalterados porque seu offset/tabela no data.bin ainda não foi identificado com segurança.
